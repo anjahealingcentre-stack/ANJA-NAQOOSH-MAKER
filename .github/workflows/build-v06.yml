@@ -1,4 +1,5 @@
-
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
 name: Build ANJA NAQOOSH MAKER v0.6
 
 on:
