@@ -1,11 +1,11 @@
 
-name: Build ANJA NAQOOSH MAKER v0.7 
+Build ANJA NAQOOSH MAKER v0.8 
 
 on:
   workflow_dispatch:
   push:
     paths:
-      - "ANJA_NAQOOSH_MAKER_v0_7_source.zip"
+      ANJA_NAQOOSH_MAKER_v0_8_source.zip 
       - ".github/workflows/build-v06.yml"
 
 jobs:
@@ -18,7 +18,7 @@ jobs:
 
       - name: Extract Android source
         run: |
-          unzip -o ANJA_NAQOOSH_MAKER_v0_7_source.zip -d /tmp/anja 
+          ANJA_NAQOOSH_MAKER_v0_8_source.zip
           cp -a /tmp/anja/ANJA_NAQOOSH_MAKER/. .
           
 
@@ -56,6 +56,6 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: ANJA-NAQOOSH-MAKER-v0.7-APK 
+          ANJA-NAQOOSH-MAKER-v0.8-APK 
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
