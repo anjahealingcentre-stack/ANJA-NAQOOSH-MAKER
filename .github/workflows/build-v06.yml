@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      ANJA_NAQOOSH_MAKER_v0_7_source.zip
+      - "ANJA_NAQOOSH_MAKER_v0_7_source.zip"
       - ".github/workflows/build-v06.yml"
 
 jobs:
