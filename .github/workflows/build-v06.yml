@@ -21,6 +21,23 @@ jobs:
           unzip -o ANJA_NAQOOSH_MAKER_v0_6_source_DOWNLOAD.zip -d /tmp/anja
           cp -a /tmp/anja/ANJA_NAQOOSH_MAKER/. .
 
+      - name: Fix Java and Kotlin compatibility
+        run: |
+          cat >> app/build.gradle.kts <<'EOF'
+
+          tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+              kotlinOptions.jvmTarget = "17"
+          }
+
+          android {
+              compileOptions {
+                  sourceCompatibility = JavaVersion.VERSION_17
+                  targetCompatibility = JavaVersion.VERSION_17
+              }
+          }
+          EOF
+
+
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
